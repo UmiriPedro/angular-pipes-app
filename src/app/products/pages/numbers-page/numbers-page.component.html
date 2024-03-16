@@ -1,0 +1,41 @@
+<!-- p-panel es el panel de PrimeNG -->
+<!-- Con [showHeader]="false" oculto el header del panel. Pero no lo estamos utilizando -->
+<!-- p-1 es un padding de 2 -->
+<p-panel header="Pipes numéricos" class="p-1">
+  <p>
+    Pipes incluídos en Angular - Usualmente en el Common Module
+  </p>
+</p-panel>
+<!-- grid es una clase de primeflex -->
+<div class="grid">
+  <!--
+    col-12 md:col-4 es una clase de primeflex.
+    Para pantallas chicas como las de los móviles se verán en 1 columna
+    Para pantallas medianas se verán en 3 columnas
+  -->
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Netas" subheader="del presente año">
+      <!-- Con el 2-2, le digo que tenga de 2 decimales a 2 decimales -->
+      {{ (totalSells + 1235) | number:'1.2-2' }}
+      <!-- Con el 2-4, le digo que tenga de 2 decimales a 4 decimales -->
+      <!-- {{ totalSells | number:'1.2-4' }} -->
+      <!-- Con el 6-6, le digo que tenga de 6 decimales a 6 decimales -->
+      <!-- Rellena con '0' -->
+      <!-- {{ totalSells | number:'1.6-6' }} -->
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Brutas" subheader="del presente año">
+      <!-- Con el 'ARS' le especifíco la moneda -->
+      {{ totalSells | currency:'ARS':'symbol-narrow':'1.4-4' }}
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-card header="Ganancia porcentual" subheader="del presente año">
+      <!-- Obtiene todos los enteros y tiene que tener de 2 decimales hasta 2 decimales -->
+      {{ percent | percent:'1.2-2' }}
+    </p-card>
+  </div>
+</div>
